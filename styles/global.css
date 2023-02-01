@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-[url("/bg.png")];
+}
+
+a {
+  @apply inline-block overflow-hidden relative;
+}
+
+a::before,
+a::after {
+  content: "";
+  @apply w-full absolute left-0;
+}
+a::before {
+  @apply bg-[#db5bb1] h-[2px] bottom-0 origin-[100%_50%] scale-x-0;
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+a::after {
+  @apply h-full top-0 origin-[100%_50%] text-[#db5bb1];
+  content: attr(aria-labelledby);
+  transform: translate3d(200%, 0, 0);
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+a:hover::before {
+  transform-origin: 0% 50%;
+  transform: scaleX(1);
+}
+a:hover::after {
+  transform: translate3d(0, 0, 0);
+}
+
+a span {
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+a:hover span {
+  transform: translate3d(-200%, 0, 0);
+}
