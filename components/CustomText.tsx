@@ -93,13 +93,23 @@ export const TitleLink = ({
   textStyles,
   children,
   href,
+  onMouseEnter,
+  onMouseLeave,
 }: {
   textStyles: string;
   children: string;
   href: string;
+  onMouseEnter?: any;
+  onMouseLeave?: any;
 }) => {
   return (
-    <Link aria-labelledby={children} href={href} className={textStyles}>
+    <Link
+      aria-labelledby={children}
+      href={href}
+      className={textStyles}
+      onMouseEnter={onMouseEnter}
+      onMouseLeave={onMouseLeave}
+    >
       <span>{children}</span>
     </Link>
   );
