@@ -2,15 +2,23 @@
 
 import { AnimatePresence, motion } from "framer-motion";
 import Image from "next/image";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { FadingText, TitleLink } from "../components";
 import styles from "../styles";
+import { FiTwitter } from "react-icons/fi";
+import { SiBehance, SiTwitter, SiYoutube } from "react-icons/si";
 
 const Home = () => {
   const [isAnimationCompleted, setCompleted] = useState<boolean>(false);
   const [aboutHover, setAboutHover] = useState<boolean>(false);
   const [workHover, setworkHover] = useState<boolean>(false);
-  const [quoteHover, setquoteHover] = useState<boolean>(false);
+  const [touchHover, settouchHover] = useState<boolean>(false);
+
+  useEffect(() => {
+    if (aboutHover || workHover) {
+      settouchHover(false);
+    }
+  }, [aboutHover, workHover]);
 
   return (
     <>
@@ -64,16 +72,13 @@ const Home = () => {
                 href="/about"
                 textStyles={styles.navLink}
                 onMouseEnter={() => {
-                  setquoteHover(true);
-                }}
-                onMouseLeave={() => {
-                  setquoteHover(false);
+                  settouchHover(true);
                 }}
               >
-                Get a quote
+                Get in touch
               </TitleLink>
             </div>
-            <AnimatePresence>
+            <AnimatePresence mode="wait">
               {aboutHover && (
                 <motion.div
                   initial={{
@@ -112,7 +117,7 @@ const Home = () => {
               )}
             </AnimatePresence>
 
-            <AnimatePresence>
+            <AnimatePresence mode="wait">
               {workHover && (
                 <motion.div
                   initial={{
@@ -152,6 +157,56 @@ const Home = () => {
                     height={400}
                     className="col-start-2 col-span-1 row-span-2 row-start-1 justify-self-start"
                   />
+                </motion.div>
+              )}
+            </AnimatePresence>
+
+            <AnimatePresence mode="wait">
+              {touchHover && (
+                <motion.div
+                  initial={{
+                    opacity: 0,
+                    scale: 1.25,
+                  }}
+                  exit={{
+                    opacity: 0,
+                    scale: 1.25,
+                    transition: { duration: 0.2, damping: 10, type: "spring" },
+                  }}
+                  animate={{
+                    opacity: 1,
+                    scale: 1,
+                    transition: { duration: 0.2, damping: 10, type: "spring" },
+                  }}
+                  className="grid md:grid-rows-3 md:grid-cols-1 grid-cols-3 grid-rows-1 place-items-center"
+                >
+                  <a
+                    href="https://twitter.com/jamesxlima"
+                    target="_blank"
+                    className="decoration-transparent group no-underline"
+                  >
+                    <div className="rounded-full transition-all border-4 grid place-items-center p-4 aspect-square group-hover:border-primary group-hover:bg-primary text-4xl">
+                      <SiTwitter className="fill-white" />
+                    </div>
+                  </a>
+                  <a
+                    href="https://www.behance.net/jamesxlima"
+                    target="_blank"
+                    className="decoration-transparent group no-underline"
+                  >
+                    <div className="rounded-full transition-all border-4 grid place-items-center p-4 aspect-square group-hover:border-primary group-hover:bg-primary text-4xl">
+                      <SiBehance className="fill-white" />
+                    </div>
+                  </a>
+                  <a
+                    href="https://www.youtube.com/@jamesxlima"
+                    target="_blank"
+                    className="decoration-transparent group no-underline"
+                  >
+                    <div className="rounded-full transition-all border-4 grid place-items-center p-4 aspect-square group-hover:border-primary group-hover:bg-primary text-4xl">
+                      <SiYoutube className="fill-white" />
+                    </div>
+                  </a>
                 </motion.div>
               )}
             </AnimatePresence>

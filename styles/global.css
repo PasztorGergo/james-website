@@ -6,39 +6,39 @@ body {
   @apply bg-[url("/bg.png")];
 }
 
-a {
+a:not(a.no-underline) {
   @apply inline-block overflow-hidden relative;
 }
 
-a::before,
-a::after {
+a:not(a.no-underline)::before,
+a:not(a.no-underline)::after {
   content: "";
   @apply w-full absolute left-0;
 }
-a::before {
+a:not(a.no-underline)::before {
   @apply bg-[#db5bb1] h-[2px] bottom-0 origin-[100%_50%] scale-x-0;
   transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
 }
-a::after {
+a:not(a.no-underline)::after {
   @apply h-full top-0 origin-[100%_50%] text-[#db5bb1];
   content: attr(aria-labelledby);
   transform: translate3d(200%, 0, 0);
   transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-a:hover::before {
+a:not(a.no-underline):hover::before {
   transform-origin: 0% 50%;
   transform: scaleX(1);
 }
-a:hover::after {
+a:not(a.no-underline):hover::after {
   transform: translate3d(0, 0, 0);
 }
 
-a span {
+a:not(a.no-underline) span {
   display: inline-block;
   transition: transform 0.3s cubic-bezier(0.76, 0, 0.24, 1);
 }
 
-a:hover span {
+a:not(a.no-underline):hover span {
   transform: translate3d(-200%, 0, 0);
 }
