@@ -1,16 +1,14 @@
-import React from "react";
-import { Navbar } from "../components";
 import "../styles/global.css";
 
-const RootLayout = ({ children }: { children: React.ReactNode }) => {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html>
-      <body className="px-16">
-        <Navbar />
-        {children}
-      </body>
+      <head />
+      <body className="px-16">{children}</body>
     </html>
   );
-};
-
-export default RootLayout;
+}

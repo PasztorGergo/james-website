@@ -106,7 +106,7 @@ export const TitleLink = ({
     <Link
       aria-labelledby={children}
       href={href}
-      className={textStyles}
+      className={`${textStyles} whitespace-nowrap`}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
     >

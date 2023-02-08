@@ -42,3 +42,7 @@ a:not(a.no-underline) span {
 a:not(a.no-underline):hover span {
   transform: translate3d(-200%, 0, 0);
 }
+
+.contact-card {
+  @apply rounded-lg transition-all grid place-items-center p-4 bg-gray-700 aspect-square group-hover:bg-primary text-6xl;
+}

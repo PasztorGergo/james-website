@@ -57,7 +57,7 @@ const Home = () => {
                 About Me
               </TitleLink>
               <TitleLink
-                href="/about"
+                href="/projects"
                 textStyles={styles.navLink}
                 onMouseEnter={() => {
                   setworkHover(true);
@@ -69,7 +69,7 @@ const Home = () => {
                 My Work
               </TitleLink>
               <TitleLink
-                href="/about"
+                href="/"
                 textStyles={styles.navLink}
                 onMouseEnter={() => {
                   settouchHover(true);
@@ -178,35 +178,37 @@ const Home = () => {
                     scale: 1,
                     transition: { duration: 0.2, damping: 10, type: "spring" },
                   }}
-                  className="grid md:grid-rows-3 md:grid-cols-1 grid-cols-3 grid-rows-1 place-items-center"
+                  className="flex flex-wrap gap-4 justify-center items-center relative"
                 >
-                  <a
-                    href="https://twitter.com/jamesxlima"
-                    target="_blank"
-                    className="decoration-transparent group no-underline"
-                  >
-                    <div className="rounded-full transition-all border-4 grid place-items-center p-4 aspect-square group-hover:border-primary group-hover:bg-primary text-4xl">
-                      <SiTwitter className="fill-white" />
-                    </div>
-                  </a>
-                  <a
-                    href="https://www.behance.net/jamesxlima"
-                    target="_blank"
-                    className="decoration-transparent group no-underline"
-                  >
-                    <div className="rounded-full transition-all border-4 grid place-items-center p-4 aspect-square group-hover:border-primary group-hover:bg-primary text-4xl">
-                      <SiBehance className="fill-white" />
-                    </div>
-                  </a>
-                  <a
-                    href="https://www.youtube.com/@jamesxlima"
-                    target="_blank"
-                    className="decoration-transparent group no-underline"
-                  >
-                    <div className="rounded-full transition-all border-4 grid place-items-center p-4 aspect-square group-hover:border-primary group-hover:bg-primary text-4xl">
-                      <SiYoutube className="fill-white" />
-                    </div>
-                  </a>
+                  <div className="absolute flex gap-4 w-full flex-row">
+                    <a
+                      href="https://twitter.com/jamesxlima"
+                      target="_blank"
+                      className="decoration-transparent group no-underline"
+                    >
+                      <div className="contact-card">
+                        <SiTwitter className="fill-white" />
+                      </div>
+                    </a>
+                    <a
+                      href="https://www.behance.net/jamesxlima"
+                      target="_blank"
+                      className="decoration-transparent group no-underline"
+                    >
+                      <div className="contact-card">
+                        <SiBehance className="fill-white" />
+                      </div>
+                    </a>
+                    <a
+                      href="https://www.youtube.com/@jamesxlima"
+                      target="_blank"
+                      className="decoration-transparent group no-underline"
+                    >
+                      <div className="contact-card">
+                        <SiYoutube className="fill-white" />
+                      </div>
+                    </a>
+                  </div>
                 </motion.div>
               )}
             </AnimatePresence>
